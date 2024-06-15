@@ -6,7 +6,7 @@ export const zodBookingSchema = z.object({
     startTime: z.date(),
     returnTime: z.date(),
     totalCost: z.number(),
-    isReturned: z.boolean().default(false),
+    isReturned: z.boolean().default(false).optional(),
 });
 
 export default zodBookingSchema;

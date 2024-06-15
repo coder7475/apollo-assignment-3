@@ -22,7 +22,7 @@ const L = z.object({
         invalid_type_error: 'Address must be a string',
     }),
     role: z.enum(['user', 'admin']),
-    isDeleted: z.boolean().default(false),
+    isDeleted: z.boolean().default(false).optional(),
 });
 
 export default L;

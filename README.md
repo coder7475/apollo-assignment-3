@@ -1,6 +1,6 @@
-## Project Name
+## Bike Rental Service
 
-[Short description of your project]
+A seamless bike rental system where users could easily rent bikes online. The system can handle user registrations, bike availability, and booking management efficiently.
 
 **Live URL:** [Link to your deployed project] 
 

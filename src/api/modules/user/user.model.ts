@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import { Schema, model } from 'mongoose';
 import IUser from './user.interface';
 
@@ -31,6 +32,20 @@ const userSchema = new Schema<IUser>(
         timestamps: true,
     },
 );
+
+// ? Use pre and post middleware to hash password
+// ? before saving and clear the password from mongoose document
+userSchema.pre('save', async function (next) {
+    // hashing password and save into database
+    this.password = await bcrypt.hash(this.password, 2);
+    next();
+});
+
+// set '' after saving password
+userSchema.post('save', function (doc, next) {
+    doc.password = '';
+    next();
+});
 
 const User = model<IUser>('User', userSchema);
 

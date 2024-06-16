@@ -8,7 +8,8 @@ import User from '../user/user.model';
  */
 const createNewUser = async (userData: IUser) => {
     const result = await User.create(userData);
-    return result;
+
+    return result.toObject();
 };
 
 const AuthServices = {

@@ -1,7 +1,7 @@
 {
-  "name": "template-backend",
+  "name": "bike-rental-service",
   "version": "1.0.0",
-  "description": "This is template for backend for typescript",
+  "description": "Backend system for bike rental service",
   "main": "index.js",
   "scripts": {
     "start": "node ./dist/index.js",

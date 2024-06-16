@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const L = z.object({
+const zodUserSchema = z.object({
     name: z.string({
         required_error: 'Name is required',
         invalid_type_error: 'Name must be a string',
@@ -25,4 +25,4 @@ const L = z.object({
     isDeleted: z.boolean().default(false).optional(),
 });
 
-export default L;
+export default zodUserSchema;

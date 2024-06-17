@@ -11,8 +11,6 @@ const router = express.Router();
 router.post('/signup', validateRequest(zodUserSchema), AuthController.signUp);
 
 // login a user after verification
-router.post('/login', validateRequest(zodLoginSchema), (req, res) => {
-    res.json(req.body);
-});
+router.post('/login', validateRequest(zodLoginSchema), AuthController.login);
 
 export const AuthRoutes = router;

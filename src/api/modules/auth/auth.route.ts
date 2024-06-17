@@ -3,6 +3,7 @@ import express from 'express';
 import AuthController from './auth.controller';
 import validateRequest from '../../../middlewares/validateRequest';
 import zodUserSchema from '../user/user.validation';
+import zodLoginSchema from './auth.validation';
 
 const router = express.Router();
 
@@ -10,7 +11,7 @@ const router = express.Router();
 router.post('/signup', validateRequest(zodUserSchema), AuthController.signUp);
 
 // login a user after verification
-router.post('/login', (req, res) => {
+router.post('/login', validateRequest(zodLoginSchema), (req, res) => {
     res.json(req.body);
 });
 

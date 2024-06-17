@@ -37,6 +37,7 @@ const loginUser = async (loginData: ILogin) => {
         throw new AppError(httpStatus.FORBIDDEN, 'Password is invalid!');
     }
     // TODO 4: create jwt token
+
     // TODO 5: return the token
     return user;
 };

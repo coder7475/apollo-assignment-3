@@ -57,6 +57,7 @@ userSchema.statics.doesUserExists = async function (email: string) {
             _id: 0,
             email: 1,
             password: 1,
+            role: 1,
             isDeleted: 1,
         },
     )

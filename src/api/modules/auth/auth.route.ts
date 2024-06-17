@@ -6,6 +6,12 @@ import zodUserSchema from '../user/user.validation';
 
 const router = express.Router();
 
+// sign up a user
 router.post('/signup', validateRequest(zodUserSchema), AuthController.signUp);
+
+// login a user after verification
+router.post('/login', (req, res) => {
+    res.json(req.body);
+});
 
 export const AuthRoutes = router;

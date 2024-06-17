@@ -1,3 +1,4 @@
+import httpStatus from 'http-status';
 import AppError from '../../../errors/AppError';
 import IUser from '../user/user.interface';
 import User from '../user/user.model';
@@ -18,9 +19,14 @@ const loginUser = async (loginData: ILogin) => {
     // ? check if user exists
     const user = await User.doesUserExists(loginData.email);
     if (!user) {
-        throw new AppError(404, 'User does not exits!');
+        throw new AppError(httpStatus.NOT_FOUND, 'User does not exits!');
     }
-    // TODO 2: check if user is already deleted
+    // ?? check if user is already deleted
+    const isDeleted = user?.isDeleted;
+
+    if (isDeleted) {
+        throw new AppError(httpStatus.FORBIDDEN, 'User is Deleted!');
+    }
     // TODO 3: check if password is correct
     // TODO 4: create jwt token
     // TODO 5: return the token

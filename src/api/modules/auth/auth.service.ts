@@ -27,7 +27,15 @@ const loginUser = async (loginData: ILogin) => {
     if (isDeleted) {
         throw new AppError(httpStatus.FORBIDDEN, 'User is Deleted!');
     }
-    // TODO 3: check if password is correct
+    // ? check if password is correct
+    const correctPassword = await User.isPasswordMatched(
+        loginData?.password,
+        user?.password,
+    );
+
+    if (!correctPassword) {
+        throw new AppError(httpStatus.FORBIDDEN, 'Password is invalid!');
+    }
     // TODO 4: create jwt token
     // TODO 5: return the token
     return user;

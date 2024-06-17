@@ -14,8 +14,13 @@ interface IUser {
 
 // Interface for mongoose schema model
 export interface UserModel extends Model<IUser> {
-    //instance methods for checking if the user exist
+    // declare static method for checking if user exits
     doesUserExists(email: string): Promise<IUser>;
+    // checking if passwords are matched
+    isPasswordMatched(
+        plainTextPassword: string,
+        hashedPassword: string,
+    ): Promise<boolean>;
 }
 
 export default IUser;

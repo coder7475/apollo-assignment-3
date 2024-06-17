@@ -14,12 +14,15 @@ const createNewUser = async (userData: IUser) => {
 };
 
 const loginUser = async (loginData: ILogin) => {
-    // TODO 1: check if user exists
+    // ? check if user exists
+    const user = User.doesUserExists(loginData.email);
+    console.log('🚀 ~ loginUser ~ user:', user);
+
     // TODO 2: check if user is already deleted
     // TODO 3: check if password is correct
     // TODO 4: create jwt token
     // TODO 5: return the token
-    return;
+    return user;
 };
 
 const AuthServices = {

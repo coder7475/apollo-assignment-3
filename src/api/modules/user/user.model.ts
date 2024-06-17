@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
 import { Schema, model } from 'mongoose';
-import IUser from './user.interface';
+import IUser, { UserModel } from './user.interface';
 
-const userSchema = new Schema<IUser>(
+const userSchema = new Schema<IUser, UserModel>(
     {
         name: {
             type: String,
@@ -48,6 +48,20 @@ userSchema.post('save', function (doc, next) {
     next();
 });
 
-const User = model<IUser>('User', userSchema);
+// ? Statics for User model
+userSchema.statics.doesUserExists = async function (email: string) {
+    const user = await User.findOne(
+        { email },
+        // projection
+        {
+            _id: 0,
+            email: 1,
+            password: 1,
+        },
+    );
+    return user;
+};
+
+const User = model<IUser, UserModel>('User', userSchema);
 
 export default User;

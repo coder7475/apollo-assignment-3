@@ -22,11 +22,12 @@ const signUp = catchAsync(async (req, res) => {
 
 // controller for login route
 const login = catchAsync(async (req, res) => {
+    const result = await AuthServices.loginUser(req.body);
     sendResponse(res, {
         success: true,
         statusCode: httpStatus.OK,
         message: 'User logged in successfully',
-        data: null,
+        data: result,
     });
 });
 

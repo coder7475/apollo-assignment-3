@@ -1,3 +1,4 @@
+import AppError from '../../../errors/AppError';
 import IUser from '../user/user.interface';
 import User from '../user/user.model';
 import ILogin from './auth.interface';
@@ -15,9 +16,10 @@ const createNewUser = async (userData: IUser) => {
 
 const loginUser = async (loginData: ILogin) => {
     // ? check if user exists
-    const user = User.doesUserExists(loginData.email);
-    console.log('🚀 ~ loginUser ~ user:', user);
-
+    const user = await User.doesUserExists(loginData.email);
+    if (!user) {
+        throw new AppError(404, 'User does not exits!');
+    }
     // TODO 2: check if user is already deleted
     // TODO 3: check if password is correct
     // TODO 4: create jwt token

@@ -3,7 +3,8 @@ import AppError from '../../../errors/AppError';
 import IUser from '../user/user.interface';
 import User from '../user/user.model';
 import ILogin from './auth.interface';
-
+import signToken from './auth.utils';
+import parameters from './../../../parameters';
 /**
  * It asynchronously creates a new user using the provided user data.
  * @param {IUser} userData - The `userData` parameter
@@ -36,10 +37,19 @@ const loginUser = async (loginData: ILogin) => {
     if (!correctPassword) {
         throw new AppError(httpStatus.FORBIDDEN, 'Password is invalid!');
     }
-    // TODO 4: create jwt token
-
-    // TODO 5: return the token
-    return user;
+    //* create jwt token
+    const payload = {
+        email: user?.email,
+        role: user?.role,
+    };
+    const accessToken = signToken(
+        payload,
+        parameters.secret as string,
+        parameters.expires as string,
+    );
+    return {
+        accessToken,
+    };
 };
 
 const AuthServices = {

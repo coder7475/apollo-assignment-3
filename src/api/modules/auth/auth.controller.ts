@@ -4,7 +4,6 @@ import httpStatus from 'http-status';
 import catchAsync from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
 import AuthServices from './auth.service';
-import { access } from 'fs';
 import parameters from '../../../parameters';
 
 // controller for signup route

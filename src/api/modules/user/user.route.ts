@@ -1,17 +1,10 @@
 // ? parent route: /api/users
 import express from 'express';
-import sendResponse from '../../../utils/sendResponse';
-import httpStatus from 'http-status';
+import UserController from './user.controller';
 
 const router = express.Router();
 
-router.get('/create-student', (req, res) => {
-    sendResponse(res, {
-        statusCode: httpStatus.CREATED,
-        success: true,
-        message: 'Created Successfully',
-        data: null,
-    });
-});
+// get users profile
+router.get('/me', UserController.getProfile);
 
 export const UserRoutes = router;

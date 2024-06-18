@@ -50,7 +50,22 @@ userSchema.post('save', function (doc, next) {
 
 // ? Statics for User model
 userSchema.statics.doesUserExists = async function (email: string) {
-    const user = await User.findOne({ email }).lean().exec();
+    const user = await User.findOne(
+        { email },
+        // projection
+        {
+            _id: 0,
+            name: 1,
+            email: 1,
+            phone: 1,
+            address: 1,
+            password: 1,
+            role: 1,
+            isDeleted: 1,
+        },
+    )
+        .lean()
+        .exec();
     return user;
 };
 

@@ -5,6 +5,7 @@ import catchAsync from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
 import AuthServices from './auth.service';
 import { access } from 'fs';
+import parameters from '../../../parameters';
 
 // controller for signup route
 const signUp = catchAsync(async (req, res) => {
@@ -23,14 +24,27 @@ const signUp = catchAsync(async (req, res) => {
 
 // controller for login route
 const login = catchAsync(async (req, res) => {
-    const { accessToken, user } = await AuthServices.loginUser(req.body);
+    const { accessToken, refreshToken, user } = await AuthServices.loginUser(
+        req.body,
+    );
+    const { isDeleted, password, ...data } = user;
+
+    res.cookie('accessToken', accessToken, {
+        secure: parameters.env === 'production',
+        httpOnly: true,
+    });
+
+    res.cookie('refreshToken', refreshToken, {
+        secure: parameters.env === 'production',
+        httpOnly: true,
+    });
+
     sendResponse(res, {
         success: true,
         statusCode: httpStatus.OK,
         message: 'User logged in successfully',
         data: {
-            accessToken,
-            ...user,
+            ...data,
         },
     });
 });

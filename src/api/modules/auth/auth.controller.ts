@@ -4,6 +4,7 @@ import httpStatus from 'http-status';
 import catchAsync from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
 import AuthServices from './auth.service';
+import { access } from 'fs';
 
 // controller for signup route
 const signUp = catchAsync(async (req, res) => {
@@ -22,12 +23,15 @@ const signUp = catchAsync(async (req, res) => {
 
 // controller for login route
 const login = catchAsync(async (req, res) => {
-    const result = await AuthServices.loginUser(req.body);
+    const { accessToken, user } = await AuthServices.loginUser(req.body);
     sendResponse(res, {
         success: true,
         statusCode: httpStatus.OK,
         message: 'User logged in successfully',
-        data: result,
+        data: {
+            accessToken,
+            ...user,
+        },
     });
 });
 

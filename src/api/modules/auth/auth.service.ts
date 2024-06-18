@@ -47,8 +47,17 @@ const loginUser = async (loginData: ILogin) => {
         parameters.secret as string,
         parameters.expires as string,
     );
+
+    const refreshToken = signToken(
+        payload,
+        parameters.refresh_secret as string,
+        parameters.refresh_expires as string,
+    );
+
     return {
         accessToken,
+        refreshToken,
+        user,
     };
 };
 

@@ -9,4 +9,6 @@ export default {
     database_url: process.env.MONGODB_URI,
     secret: process.env.SECRET_KEY,
     expires: process.env.EXPIRES_IN,
+    refresh_secret: process.env.REFRESH_KEY,
+    refresh_expires: process.env.REFRESH_EXPIRES,
 };

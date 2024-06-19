@@ -2,63 +2,65 @@
 
 A seamless bike rental system where users could easily rent bikes online. The system can handle user registrations, bike availability, and booking management efficiently.
 
-**Live URL:** [Link to your deployed project] 
+**Live URL:** [Link to your deployed project]
 
 ### Features:
 
-- **User Authentication**: Secure login and registration using JWT.
-- ...other features
+-   **User Authentication**: Secure login and registration using JWT.
+-   ...other features
 
 ### Technology Stack:
 
-* Express.js
-* TypeScript
-* Mongoose
-* Zod
-* .....other technologies
+-   Express.js
+-   TypeScript
+-   Mongoose
+-   Zod
+-   JWT
+-   .....other technologies
 
 ### Prerequisites
 
-- Node.js
-- npm
-- MongoDB
-- [Prettier ESLint](vs-code-prettier-eslint)
-- ....other prerequisites
+-   Node.js
+-   npm
+-   MongoDB
+-   [Prettier ESLint](vs-code-prettier-eslint)
+-   ....other prerequisites
 
 ### Installation:
 
 1. **Clone the Repository:**
 
-   ```bash
-   git clone <repo_link>
-   ```
+    ```bash
+    git clone <repo_link>
+    ```
 
 2. **Navigate to the Project Directory:**
 
-   ```bash
-   cd <project_name>
-   ```
+    ```bash
+    cd <project_name>
+    ```
 
 3. **Setup your .env file:**
 
-   ```plaintext
-   ENV=<value>
-   PORT=<value>
-   MONGODB_URI=<Your_mongodb_database_url>
-   ......other environment varaibles
-   ```
+    ```plaintext
+    ENV=<value>
+    PORT=<value>
+    MONGODB_URI=<Your_mongodb_database_url>
+    ......other environment variables
+    ```
 
 4. **Install Dependencies:**
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
 5. **Start the Server:**
 
-   ```bash
-   npm run dev
-   ```
+    ```bash
+    npm run dev
+    ```
+
 ### Usage:
 
 1. Visit http://localhost:<port_name> to see the application in action.
@@ -71,8 +73,8 @@ A seamless bike rental system where users could easily rent bikes online. The sy
 
 ### Author(s):
 
-* [Your Name] ([Your GitHub Username](http://github.com/[Your Username]))
+-   [Your Name] ([Your GitHub Username](http://github.com/[Your Username]))
 
 ### Acknowledgments:
 
-* (Optional) Thank any contributors or resources used
+-   (Optional) Thank any contributors or resources used

@@ -27,8 +27,26 @@ const getProfile = catchAsync(async (req, res) => {
     });
 });
 
+const updateProfile = catchAsync(async (req, res) => {
+    const token = req.headers.authorization?.split(' ')[1];
+    // const cookies = req.cookies;
+    if (!token) {
+        throw new AppError(httpStatus.FORBIDDEN, 'You are not authorized');
+    }
+
+    const result = UserServices.updateUserProfile(token as string, req.body);
+
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'Profile updated successfully',
+        data: result,
+    });
+});
+
 const UserController = {
     getProfile,
+    updateProfile,
 };
 
 export default UserController;

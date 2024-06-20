@@ -7,6 +7,9 @@ export interface IBike {
     model: string;
     brand: string;
     isAvailable: boolean;
+    createdAt?: string;
+    updatedAt?: string;
+    __v?: number;
 }
 
 export default IBike;

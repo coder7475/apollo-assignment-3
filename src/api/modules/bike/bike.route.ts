@@ -15,4 +15,7 @@ router.get('/', BikeController.allBikes);
 // update a bike
 router.put('/:id', auth('admin'), BikeController.updateBike);
 
+// delete a bike
+router.delete('/:id', auth('admin'), BikeController.deleteBike);
+
 export const BikeRoutes = router;

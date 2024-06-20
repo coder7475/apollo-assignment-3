@@ -25,7 +25,7 @@ const getAllBikes = async () => {
         .exec();
     return allBikes;
 };
-
+// update bike
 const updateBike = async (id: string, updateData: Partial<IBike>) => {
     const result = await Bike.findByIdAndUpdate(id, updateData, {
         new: true,
@@ -46,6 +46,25 @@ const updateBike = async (id: string, updateData: Partial<IBike>) => {
     return result;
 };
 
-const BikeServices = { addNewBike, getAllBikes, updateBike };
+// delete a bike
+const deleteBike = async (id: string) => {
+    const deletedBike = await Bike.findByIdAndDelete(id)
+        .select({
+            _id: 1,
+            name: 1,
+            description: 1,
+            pricePerHour: 1,
+            isAvailable: 1,
+            cc: 1,
+            year: 1,
+            model: 1,
+            brand: 1,
+        })
+        .lean()
+        .exec();
+    return deletedBike;
+};
+
+const BikeServices = { addNewBike, getAllBikes, updateBike, deleteBike };
 
 export default BikeServices;

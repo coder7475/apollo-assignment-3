@@ -5,6 +5,7 @@ import catchAsync from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
 import BikeServices from './bike.service';
 
+// create bike
 const createBike = catchAsync(async (req, res) => {
     const bike = await BikeServices.addNewBike(req.body);
     const { createdAt, updatedAt, __v, ...data } = bike;
@@ -16,8 +17,20 @@ const createBike = catchAsync(async (req, res) => {
     });
 });
 
+// find all bikes
+const allBikes = catchAsync(async (req, res) => {
+    const bikes = await BikeServices.getAllBikes();
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'Bikes retrieved successfully',
+        data: bikes,
+    });
+});
+
 const BikeController = {
     createBike,
+    allBikes,
 };
 
 export default BikeController;

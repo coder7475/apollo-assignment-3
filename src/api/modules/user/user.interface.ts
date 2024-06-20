@@ -10,6 +10,9 @@ interface IUser {
     address: string;
     role: 'user' | 'admin';
     isDeleted: boolean;
+    createdAt?: string;
+    updatedAt?: string;
+    __v?: number;
 }
 
 // Interface for mongoose schema model

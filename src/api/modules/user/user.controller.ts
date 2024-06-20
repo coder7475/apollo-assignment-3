@@ -34,13 +34,25 @@ const updateProfile = catchAsync(async (req, res) => {
         throw new AppError(httpStatus.FORBIDDEN, 'You are not authorized');
     }
 
-    const result = UserServices.updateUserProfile(token as string, req.body);
+    const result = await UserServices.updateUserProfile(
+        token as string,
+        req.body,
+    );
+
+    if (!result) {
+        throw new AppError(
+            httpStatus.FORBIDDEN,
+            'Update of user profile failed!',
+        );
+    }
+
+    const { __v, createdAt, updatedAt, password, isDeleted, ...data } = result;
 
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
         message: 'Profile updated successfully',
-        data: result,
+        data: data,
     });
 });
 

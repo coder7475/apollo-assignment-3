@@ -31,7 +31,9 @@ const updateUserProfile = async (token: string, newData: Partial<IUser>) => {
 
     const result = await User.findOneAndUpdate({ email, role }, newData, {
         new: true,
-    });
+    })
+        .lean()
+        .exec();
 
     return result;
 };

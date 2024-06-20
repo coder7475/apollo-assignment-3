@@ -26,6 +26,26 @@ const getAllBikes = async () => {
     return allBikes;
 };
 
-const BikeServices = { addNewBike, getAllBikes };
+const updateBike = async (id: string, updateData: Partial<IBike>) => {
+    const result = await Bike.findByIdAndUpdate(id, updateData, {
+        new: true,
+    })
+        .select({
+            _id: 1,
+            name: 1,
+            description: 1,
+            pricePerHour: 1,
+            isAvailable: 1,
+            cc: 1,
+            year: 1,
+            model: 1,
+            brand: 1,
+        })
+        .lean()
+        .exec();
+    return result;
+};
+
+const BikeServices = { addNewBike, getAllBikes, updateBike };
 
 export default BikeServices;

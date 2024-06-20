@@ -4,15 +4,15 @@ import httpStatus from 'http-status';
 import catchAsync from '../utils/catchAsync';
 
 const notFound = catchAsync(
-  (req: Request, res: Response, next: NextFunction) => {
-    sendResponse(res, {
-      statusCode: httpStatus.NOT_FOUND,
-      success: false,
-      message: 'NOT FOUND',
-      data: null,
-    });
-    next();
-  },
+    (req: Request, res: Response, next: NextFunction) => {
+        sendResponse(res, {
+            statusCode: httpStatus.NOT_FOUND,
+            success: false,
+            message: 'NOT FOUND',
+            data: null,
+        });
+        next();
+    },
 );
 
 export default notFound;

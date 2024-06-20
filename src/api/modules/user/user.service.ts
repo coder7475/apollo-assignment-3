@@ -1,5 +1,6 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import parameters from '../../../parameters';
+import User from './user.model';
 
 const getUserProfile = async (token: string) => {
     // checking if the given token is valid
@@ -7,11 +8,16 @@ const getUserProfile = async (token: string) => {
         token,
         parameters.secret as string,
     ) as JwtPayload;
-    const { email, role, iat, exp } = decoded;
+    const { email, role } = decoded;
 
-    return {
-        token,
-    };
+    const user = await User.findOne({
+        email,
+        role,
+    })
+        .lean()
+        .exec();
+
+    return user;
 };
 
 const UserServices = {

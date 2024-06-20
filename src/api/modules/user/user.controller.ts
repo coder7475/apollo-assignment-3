@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import httpStatus from 'http-status';
 import catchAsync from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
@@ -16,12 +18,17 @@ const getProfile = catchAsync(async (req, res) => {
         throw new AppError(httpStatus.FORBIDDEN, 'You are not authorized');
     }
     const user = await UserServices.getUserProfile(token as string);
-    console.log(user);
+    // throw error if user does not exits
+    if (!user) {
+        throw new AppError(httpStatus.NOT_FOUND, 'User does not exits');
+    }
+    const { password, isDeleted, ...data } = user;
+
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
         message: 'User profile retrieved successfully',
-        data: user,
+        data: data,
     });
 });
 

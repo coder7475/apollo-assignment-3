@@ -19,5 +19,6 @@ router.post(
 router.put('/:id/return', auth('admin'), BookingController.returnBike);
 
 // get all my bikes - only current users bookings
+router.get('/', auth('user', 'admin'), BookingController.myRentals);
 
 export const BookingRoute = router;

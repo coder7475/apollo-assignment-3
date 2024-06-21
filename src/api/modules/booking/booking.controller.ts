@@ -7,7 +7,9 @@ import BookingServices from './booking.service';
 
 const createRental = catchAsync(async (req, res) => {
     const result = await BookingServices.makeBooking(req.body);
-    const { createdAt, updatedAt, __v, ...data } = result;
+    console.log('🚀 ~ createRental ~ result:', result);
+    const { createdAt, updatedAt, __v, ...data } = result.toObject();
+    console.log('🚀 ~ createRental ~ data:', data);
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,

@@ -21,13 +21,12 @@ const returnBike = catchAsync(async (req, res) => {
     const bookingId = req.params.id;
     const user = req.body;
     const result = await BookingServices.returnBike(bookingId, user);
-    const { createdAt, updatedAt, __v, ...data } = result;
 
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
         message: 'Bike returned successfully',
-        data: data,
+        data: result,
     });
 });
 

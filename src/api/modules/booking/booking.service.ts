@@ -26,6 +26,8 @@ const returnBike = async (id: string, user: Partial<RentalInfo>) => {
         .exec();
     const returnTime = new Date();
     const rentHours = diff_hours(returnTime, rentalInfo?.startTime as Date);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
     const totalCost = rentHours * rentalInfo?.bikeId?.pricePerHour;
     // update the booking info
     const updatedInfo = {
@@ -37,10 +39,21 @@ const returnBike = async (id: string, user: Partial<RentalInfo>) => {
     const result = await Booking.findByIdAndUpdate(id, updatedInfo, {
         new: true,
     })
+        .select({
+            _id: 1,
+            userId: 1,
+            bikeId: 1,
+            startTime: 1,
+            returnTime: 1,
+            totalCost: 1,
+            isReturned: 1,
+        })
         .lean()
         .exec();
 
     // change the bike available to true
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
     const bikeId = rentalInfo?.bikeId?._id;
     const bike = await Bike.findByIdAndUpdate(
         bikeId,

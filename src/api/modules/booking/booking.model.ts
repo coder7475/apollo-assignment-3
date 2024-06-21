@@ -7,13 +7,11 @@ const bookingSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'User',
             required: true,
-            unique: true,
         },
         bikeId: {
             type: Schema.Types.ObjectId,
             ref: 'Bike',
             required: true,
-            unique: true,
         },
         startTime: {
             type: Date,

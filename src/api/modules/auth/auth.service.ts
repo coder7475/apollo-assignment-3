@@ -39,7 +39,7 @@ const loginUser = async (loginData: ILogin) => {
     }
     //* create jwt token
     const payload = {
-        user_id: user?._id,
+        userId: user?._id,
         email: user?.email,
         role: user?.role,
     };

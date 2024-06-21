@@ -20,7 +20,8 @@ app.use(
     }),
 );
 
-// application routes
+// * application routes
+// ? top level route
 app.use('/api', router);
 //? handle global error for all defined route
 app.use(globalErrorHandler);

@@ -49,6 +49,10 @@ const auth = (...roles: string[]) => {
             );
         }
 
+        req.body = {
+            ...req.body,
+            ...decoded,
+        };
         next();
     });
 };

@@ -1,17 +1,20 @@
 // ? parent route: /api/users
-import express from 'express';
-import sendResponse from '../../../utils/sendResponse';
-import httpStatus from 'http-status';
+import { Router } from 'express';
+import UserController from './user.controller';
+import validateRequest from '../../../middlewares/validateRequest';
+import { zodPartialUserSchema } from './user.validation';
 
-const router = express.Router();
+const router = Router();
 
-router.get('/create-student', (req, res) => {
-    sendResponse(res, {
-        statusCode: httpStatus.CREATED,
-        success: true,
-        message: 'Created Successfully',
-        data: null,
-    });
-});
+// * api/users/me
+// get users profile
+router.get('/me', UserController.getProfile);
+
+// update users profile
+router.put(
+    '/me',
+    validateRequest(zodPartialUserSchema),
+    UserController.updateProfile,
+);
 
 export const UserRoutes = router;

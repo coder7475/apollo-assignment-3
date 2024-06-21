@@ -25,4 +25,7 @@ const zodUserSchema = z.object({
     isDeleted: z.boolean().default(false).optional(),
 });
 
+// create a partial type for update user data
+export const zodPartialUserSchema = zodUserSchema.partial();
+
 export default zodUserSchema;

@@ -4,17 +4,19 @@ import notFound from './middlewares/notFound';
 import parameters from './parameters';
 import globalErrorHandler from './middlewares/globalErrorHandler';
 import router from './api/routes';
+import cookieParser from 'cookie-parser';
 
 // initialize express app
 const app: Application = express();
 
 // *? middlewares
 app.use(express.json());
+app.use(cookieParser());
 app.use(
     cors({
         origin: ['http://localhost:7475'],
-        credentials: parameters.env === 'production' ? true : false,
-        methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+        credentials: parameters.env === 'production',
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     }),
 );
 

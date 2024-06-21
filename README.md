@@ -15,6 +15,7 @@ A seamless bike rental system where users could easily rent bikes online. The sy
 -   TypeScript
 -   Mongoose
 -   Zod
+-   JWT
 -   .....other technologies
 
 ### Prerequisites
@@ -45,7 +46,7 @@ A seamless bike rental system where users could easily rent bikes online. The sy
     ENV=<value>
     PORT=<value>
     MONGODB_URI=<Your_mongodb_database_url>
-    ......other environment varaibles
+    ......other environment variables
     ```
 
 4. **Install Dependencies:**

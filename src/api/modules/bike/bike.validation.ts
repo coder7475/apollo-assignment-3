@@ -11,4 +11,6 @@ const zodBikeSchema = z.object({
     isAvailable: z.boolean().default(false).optional(),
 });
 
+export const zodPartialBikeSchema = zodBikeSchema.partial();
+
 export default zodBikeSchema;

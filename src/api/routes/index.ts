@@ -22,7 +22,7 @@ const moduleRoutes = [
         route: BikeRoutes,
     },
     {
-        path: '/booking',
+        path: '/rentals',
         route: BookingRoute,
     },
 ];

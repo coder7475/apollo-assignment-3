@@ -17,6 +17,11 @@ const bikeSchema = new Schema(
             type: Number,
             required: true,
         },
+        isAvailable: {
+            type: Boolean,
+            required: true,
+            default: true,
+        },
         cc: {
             type: Number,
             required: true,

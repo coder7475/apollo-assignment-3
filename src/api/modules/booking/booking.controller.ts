@@ -3,6 +3,8 @@ import catchAsync from '../../../utils/catchAsync';
 import sendResponse from '../../../utils/sendResponse';
 
 const createRental = catchAsync(async (req, res) => {
+    // const info = req.body;
+
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,

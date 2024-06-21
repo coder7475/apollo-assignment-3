@@ -16,6 +16,7 @@ const createRental = catchAsync(async (req, res) => {
     });
 });
 
+// return bike after use
 const returnBike = catchAsync(async (req, res) => {
     const bookingId = req.params.id;
     const user = req.body;
@@ -30,9 +31,23 @@ const returnBike = catchAsync(async (req, res) => {
     });
 });
 
+// all rentals of logged in user
+const myRentals = catchAsync(async (req, res) => {
+    const { userId } = req.body;
+    const result = await BookingServices.myBikes(userId);
+
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'Rentals retrieved successfully',
+        data: result,
+    });
+});
+
 const BookingController = {
     createRental,
     returnBike,
+    myRentals,
 };
 
 export default BookingController;

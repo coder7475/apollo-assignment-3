@@ -54,7 +54,7 @@ userSchema.statics.doesUserExists = async function (email: string) {
         { email },
         // projection
         {
-            _id: 0,
+            _id: 1,
             name: 1,
             email: 1,
             phone: 1,

@@ -3,6 +3,7 @@ import { Model } from 'mongoose';
 
 // Interface for user model
 interface IUser {
+    _id?: string;
     name: string;
     email: string;
     password: string;

@@ -16,6 +16,8 @@ const makeBooking = async (info: RentalInfo) => {
     return result;
 };
 
+// const returnBike =
+
 const BookingServices = {
     makeBooking,
 };

@@ -15,4 +15,7 @@ router.post(
     BookingController.createRental,
 );
 
+// return bike - only admin - id is booking id
+router.put('/:id/return', auth('admin'), BookingController.returnBike);
+
 export const BookingRoute = router;

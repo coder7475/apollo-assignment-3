@@ -16,8 +16,19 @@ const createRental = catchAsync(async (req, res) => {
     });
 });
 
+const returnBike = catchAsync(async (req, res) => {
+    console.log(req.params.id);
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'Bike returned successfully',
+        data: null,
+    });
+});
+
 const BookingController = {
     createRental,
+    returnBike,
 };
 
 export default BookingController;

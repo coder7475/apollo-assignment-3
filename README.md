@@ -6,8 +6,10 @@ A seamless bike rental system where users could easily rent bikes online. The sy
 
 ### Features:
 
--   **User Authentication**: Secure login and registration using JWT.
--   ...other features
+-   **User Authentication**: Secure signUp and login using JWT.
+-   **User Authorization**: Authorization for admin, user
+-   **Bike Rentals**: User Can Book A Bike for Rental and return it digitally
+-   **Bike Management**: Admin's can create, update, delete Bike Data
 
 ### Technology Stack:
 
@@ -16,7 +18,6 @@ A seamless bike rental system where users could easily rent bikes online. The sy
 -   Mongoose
 -   Zod
 -   JWT
--   .....other technologies
 
 ### Prerequisites
 
@@ -28,34 +29,38 @@ A seamless bike rental system where users could easily rent bikes online. The sy
 
 ### Installation:
 
-1. **Clone the Repository:**
+1.  **Clone the Repository:**
 
     ```bash
-    git clone <repo_link>
+    git clone https://github.com/coder7475/apollo-assignment-3.git
     ```
 
-2. **Navigate to the Project Directory:**
+2.  **Navigate to the Project Directory:**
 
     ```bash
-    cd <project_name>
+    cd apollo-assignment-3
     ```
 
-3. **Setup your .env file:**
+3.  **Setup your .env file:**
 
     ```plaintext
-    ENV=<value>
-    PORT=<value>
-    MONGODB_URI=<Your_mongodb_database_url>
-    ......other environment variables
+       ENV='development'
+       PORT=7475
+       MONGODB_URI=<Your_mongodb_database_url>
+       SECRET_KEY=2fc90105b3fe68b5274624cbe66c25ad0819b94e6f311fd1a21692a51e056573f74f>
+       EXPIRES_IN=1d
+       REFRESH_KEY=b2488c003d4807937920644b34095ef99af11ec4aec9d663accfb8aa6316fe93721>
+       REFRESH_EXPIRES=100d
+
     ```
 
-4. **Install Dependencies:**
+4.  **Install Dependencies:**
 
     ```bash
     npm install
     ```
 
-5. **Start the Server:**
+5.  **Start the Server:**
 
     ```bash
     npm run dev
@@ -63,18 +68,8 @@ A seamless bike rental system where users could easily rent bikes online. The sy
 
 ### Usage:
 
-1. Visit http://localhost:<port_name> to see the application in action.
-2. Step 2
-3. Step 3
-
-### License:
-
-[Specify the license under which your project is distributed] (e.g., MIT License)
+Visit http://localhost:7475 to see the application in action.
 
 ### Author(s):
 
--   [Your Name] ([Your GitHub Username](http://github.com/[Your Username]))
-
-### Acknowledgments:
-
--   (Optional) Thank any contributors or resources used
+-   [Robiul Hossain] ([coder7475](http://github.com/coder7475))

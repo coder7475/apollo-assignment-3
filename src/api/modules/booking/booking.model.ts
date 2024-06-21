@@ -4,12 +4,12 @@ import IBooking from './booking.interface';
 const bookingSchema = new Schema(
     {
         userId: {
-            type: Schema.Types.ObjectId,
+            type: String,
             ref: 'User',
             required: true,
         },
         bikeId: {
-            type: Schema.Types.ObjectId,
+            type: String,
             ref: 'Bike',
             required: true,
         },

@@ -18,4 +18,6 @@ router.post(
 // return bike - only admin - id is booking id
 router.put('/:id/return', auth('admin'), BookingController.returnBike);
 
+// get all my bikes - only current users bookings
+
 export const BookingRoute = router;

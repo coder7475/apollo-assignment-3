@@ -52,9 +52,30 @@ const returnBike = async (id: string, user: Partial<RentalInfo>) => {
     return result;
 };
 
+// get all users bike rentals - Bookings
+const myBikes = async (id: string) => {
+    const allMyBikes = await Booking.find({
+        userId: id,
+    })
+        .select({
+            _id: 1,
+            userId: 1,
+            bikeId: 1,
+            startTime: 1,
+            returnTime: 1,
+            totalCost: 1,
+            isReturned: 1,
+        })
+        .lean()
+        .exec();
+
+    return allMyBikes;
+};
+
 const BookingServices = {
     makeBooking,
     returnBike,
+    myBikes,
 };
 
 export default BookingServices;

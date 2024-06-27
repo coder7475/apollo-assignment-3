@@ -38,10 +38,11 @@ const login = catchAsync(async (req, res) => {
         httpOnly: true,
     });
 
-    sendResponse(res, {
+    res.json({
         success: true,
         statusCode: httpStatus.OK,
         message: 'User logged in successfully',
+        token: accessToken,
         data: {
             ...data,
         },

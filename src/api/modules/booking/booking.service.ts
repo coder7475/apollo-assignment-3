@@ -25,7 +25,13 @@ const returnBike = async (id: string, user: Partial<RentalInfo>) => {
         .lean()
         .exec();
     const returnTime = new Date();
+    console.log('🚀 ~ returnBike ~ returnTime:', returnTime);
     const rentHours = diff_hours(returnTime, rentalInfo?.startTime as Date);
+    console.log(
+        '🚀 ~ returnBike ~ rentalInfo?.startTime:',
+        rentalInfo?.startTime,
+    );
+    console.log(rentHours);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     const totalCost = rentHours * rentalInfo?.bikeId?.pricePerHour;

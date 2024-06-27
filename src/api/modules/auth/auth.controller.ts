@@ -38,7 +38,7 @@ const login = catchAsync(async (req, res) => {
         httpOnly: true,
     });
 
-    res.json({
+    res.status(200).json({
         success: true,
         statusCode: httpStatus.OK,
         message: 'User logged in successfully',

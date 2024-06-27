@@ -2,7 +2,7 @@
 
 A seamless bike rental system where users could easily rent bikes online. The system can handle user registrations, bike availability, and booking management efficiently.
 
-**Live URL:** https://apollo-assignment-3-xi.vercel.app/
+**Live URL:** https://apollo-assignment-3-one.vercel.app/
 
 ### Features:
 

@@ -6,6 +6,7 @@ const sendResponse = <T>(res: Response, data: IResponse<T>) => {
         success: data?.success,
         statusCode: data?.statusCode,
         message: data?.message,
+        token: data?.token,
         data: data?.data,
     });
 };

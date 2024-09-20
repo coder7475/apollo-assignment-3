@@ -2,7 +2,7 @@
 import { Router } from 'express';
 import AuthController from './auth.controller';
 import validateRequest from '../../../middlewares/validateRequest';
-import zodUserSchema from '../user/user.validation';
+import zodUserSchema from '../booking/user/user.validation';
 import zodLoginSchema from './auth.validation';
 
 const router = Router();

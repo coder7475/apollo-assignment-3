@@ -4,7 +4,7 @@ import path from 'path';
 dotenv.config({ path: path.join((process.cwd(), '.env')) });
 
 export default {
-    env: process.env.ENV,
+    env: process.env.ENV as string,
     port: process.env.PORT,
     database_url: process.env.MONGODB_URI,
     secret: process.env.SECRET_KEY,

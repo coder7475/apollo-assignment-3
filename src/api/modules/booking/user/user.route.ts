@@ -1,7 +1,7 @@
 // ? parent route: /api/users
 import { Router } from 'express';
 import UserController from './user.controller';
-import validateRequest from '../../../middlewares/validateRequest';
+import validateRequest from '../../../../middlewares/validateRequest';
 import { zodPartialUserSchema } from './user.validation';
 
 const router = Router();

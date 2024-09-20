@@ -1,5 +1,5 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import parameters from '../../../parameters';
+import parameters from '../../../../parameters';
 import User from './user.model';
 import IUser from './user.interface';
 

@@ -12,13 +12,7 @@ const app: Application = express();
 // *? middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-    cors({
-        origin: ['http://localhost:7475'],
-        credentials: parameters.env === 'production',
-        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    }),
-);
+app.use(cors());
 
 // * application routes
 // ? top level route

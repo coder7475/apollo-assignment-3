@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import httpStatus from 'http-status';
-import catchAsync from '../../../utils/catchAsync';
-import sendResponse from '../../../utils/sendResponse';
+import catchAsync from '../../../../utils/catchAsync';
+import sendResponse from '../../../../utils/sendResponse';
 import UserServices from './user.service';
-import AppError from '../../../errors/AppError';
+import AppError from '../../../../errors/AppError';
 
 const getProfile = catchAsync(async (req, res) => {
     const token = req.headers.authorization?.split(' ')[1];

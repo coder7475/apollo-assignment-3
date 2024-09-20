@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import AppError from '../errors/AppError';
 import catchAsync from '../utils/catchAsync';
 import parameters from '../parameters';
-import User from '../api/modules/user/user.model';
+import User from '../api/modules/booking/user/user.model';
 
 const auth = (...roles: string[]) => {
     return catchAsync(async (req, res, next) => {

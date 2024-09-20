@@ -2,7 +2,6 @@
     "name": "bike-rental-service",
     "version": "1.0.0",
     "description": "Backend system for bike rental service",
-    "main": "index.js",
     "scripts": {
         "start": "node ./dist/server.js",
         "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
